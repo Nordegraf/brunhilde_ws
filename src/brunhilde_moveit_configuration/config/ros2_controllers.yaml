@@ -1,0 +1,89 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    FL_plan_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    FR_plan_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    HL_plan_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    HR_plan_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    all_legs_plan_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+FL_plan_controller:
+  ros__parameters:
+    joints:
+      - FL_HFE
+      - FL_KFE
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+FR_plan_controller:
+  ros__parameters:
+    joints:
+      - FR_HFE
+      - FR_KFE
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+HL_plan_controller:
+  ros__parameters:
+    joints:
+      - HL_HFE
+      - HL_KFE
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+HR_plan_controller:
+  ros__parameters:
+    joints:
+      - HR_HFE
+      - HR_KFE
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+all_legs_plan_controller:
+  ros__parameters:
+    joints:
+      - FL_HFE
+      - FL_KFE
+      - FR_HFE
+      - FR_KFE
+      - HL_HFE
+      - HL_KFE
+      - HR_HFE
+      - HR_KFE
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true

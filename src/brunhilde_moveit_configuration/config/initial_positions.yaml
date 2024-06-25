@@ -1,0 +1,11 @@
+# Default initial positions for brunhilde's ros2_control fake system
+
+initial_positions:
+  FL_HFE: 0
+  FL_KFE: 0
+  FR_HFE: 0
+  FR_KFE: 0
+  HL_HFE: 0
+  HL_KFE: 0
+  HR_HFE: 0
+  HR_KFE: 0
