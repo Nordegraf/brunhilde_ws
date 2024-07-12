@@ -23,7 +23,6 @@ setup(
         (os.path.join('share', package_name, 'resource/xacro/collisions'), glob(os.path.join('resource', 'xacro/collisions/*.stl'))),
         (os.path.join('share', package_name, 'resource/xacro'), glob(os.path.join('resource', 'xacro/*.xacro'))),
         (os.path.join('share', package_name, 'resource/rviz'), glob(os.path.join('resource', 'rviz/*.rviz'))),
-        (os.path.join('share', package_name, 'resource/urdf'), glob(os.path.join('resource', 'urdf/*.urdf'))),
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.yaml'))),
     ],
     install_requires=['setuptools'],

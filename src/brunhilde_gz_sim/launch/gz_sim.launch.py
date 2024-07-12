@@ -72,5 +72,6 @@ def generate_launch_description():
         model,
         bringup,
         gazebo,
-        spawner
+        spawner,
+        bridge
     ])

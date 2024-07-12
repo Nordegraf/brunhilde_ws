@@ -30,7 +30,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y ros-dev-tools
 RUN apt-get install -y ros-$ROS_DISTRO-desktop ros-$ROS_DISTRO-joint-state-publisher-gui ros-$ROS_DISTRO-robot-state-publisher ros-$ROS_DISTRO-xacro
 RUN apt-get install -y ros-$ROS_DISTRO-ros-gz
-RUN apt-get install -y ros-$ROS_DISTRO-ros2-control ros-$ROS_DISTRO-ros2-controllers ros-jazzy-gz-ros2-control
+RUN apt-get install -y ros-$ROS_DISTRO-ros2-control ros-$ROS_DISTRO-ros2-controllers ros-$ROS_DISTRO-gz-ros2-control ros-$ROS_DISTRO-imu-tools
 RUN apt-get install -y python3 python3-pip python3-colcon-common-extensions python3-colcon-mixin python3-numpy python-is-python3 python3-vcstool
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
