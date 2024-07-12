@@ -36,12 +36,6 @@ RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
 WORKDIR "/home"
 
-# MuJuCo
-RUN wget https://github.com/google-deepmind/mujoco/releases/download/3.1.6/mujoco-3.1.6-linux-aarch64.tar.gz
-RUN tar -xvf mujoco-3.1.6-linux-aarch64.tar.gz
-RUN rm mujoco-3.1.6-linux-aarch64.tar.gz
-
-
 ### Solo8 Setup ###
 RUN git clone https://github.com/Nordegraf/brunhilde_ws.git --recursive
 RUN apt-get install -y libeigen3-dev pybind11-dev doxygen ros-jazzy-eigenpy libyaml-cpp-dev libboost-all-dev
