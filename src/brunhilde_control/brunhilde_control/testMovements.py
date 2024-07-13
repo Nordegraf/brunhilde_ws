@@ -110,6 +110,50 @@ class TestMovements(Node):
 
         self.execute(jump)
 
+    def wave(self) -> None:
+        dx = 0.38 # distance joints in x direction [m]
+        u = 0.16 # upper leg and lower leg length [m]
+        f = 2 # frequency [Hz]
+
+        def wave_fct(t, phi):
+            y_0 = 0.2
+            y_hat = 0.1
+            return y_0 + y_hat * math.sin(f*t + phi)
+
+        def knee_angle(y):
+            return math.asin(y/2/u)*2
+
+        def hip_angle(y1, y2):
+            front = math.acos(y1/2/u)
+            back = math.acos(y2/2/u)
+
+            return front, back
+
+        def angles(t):
+            yf = wave_fct(t, 0)
+            yb = wave_fct(t, math.pi/2)
+
+            k_f = knee_angle(yf) - math.pi
+            k_b = knee_angle(yb) - math.pi
+
+            h_f, h_b = hip_angle(yf, yb)
+
+            return [h_f, k_f, h_f, k_f, h_b, k_b, h_b, k_b]
+
+        steps = 20
+        wave = {
+            "name": "wave",
+            "trajectory": [
+                {
+                    "positions": [[0]*8] + [angles(t) for t in range(steps)] + [[0]*8],
+                    "durations": [i/2 for i in range(1, steps+3)]
+                }
+            ]
+        }
+
+        self.execute(wave)
+
+
     def execute(self, movement: dict) -> None:
         """
             execute movements using the joint trajectory controller
