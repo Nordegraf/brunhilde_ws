@@ -3,6 +3,8 @@ FROM ubuntu:24.04
 
 ARG ROS_DISTRO=jazzy
 
+ENV XDG_RUNTIME_DIR=/tmp/runtime-root
+
 ### ROS Setup ###
 # locales
 RUN apt-get update
@@ -34,10 +36,15 @@ RUN apt-get install -y ros-$ROS_DISTRO-ros2-control ros-$ROS_DISTRO-ros2-control
 RUN apt-get install -y python3 python3-pip python3-colcon-common-extensions python3-colcon-mixin python3-numpy python-is-python3 python3-vcstool
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
-WORKDIR "/home"
+WORKDIR "/home/brunhilde_ws"
 
 ### Solo8 Setup ###
-RUN git clone https://github.com/Nordegraf/brunhilde_ws.git --recursive
+COPY src /home/brunhilde_ws/src
 RUN apt-get install -y libeigen3-dev pybind11-dev doxygen ros-jazzy-eigenpy libyaml-cpp-dev libboost-all-dev
 
-ENV DISPLAY :0
+RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
+    colcon build
+
+RUN echo "source /home/brunhilde_ws/install/setup.bash" >> /root/.bashrc
+
+ENV DISPLAY=host.docker.internal:0.0
