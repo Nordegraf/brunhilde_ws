@@ -5,7 +5,6 @@
 	<xacro:arg name="use_mock_hardware" default="false"/>
 	<xacro:arg name="use_real_hardware" default="true"/>
 
-
 	<ros2_control name="brunhilde" type="system">
     <xacro:macro name="ros2_control_joint" params="link">
 			<joint name="${link}">
