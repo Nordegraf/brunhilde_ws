@@ -23,7 +23,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'telestat = brunhilde_teleop.telestat:main'
+            'telestat = brunhilde_teleop.telestat:main',
+            'telecontrol = brunhilde_teleop.telecontrol_node:main',
         ],
     },
 )
