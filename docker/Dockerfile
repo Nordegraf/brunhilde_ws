@@ -40,4 +40,4 @@ WORKDIR "/home"
 RUN git clone https://github.com/Nordegraf/brunhilde_ws.git --recursive
 RUN apt-get install -y libeigen3-dev pybind11-dev doxygen ros-jazzy-eigenpy libyaml-cpp-dev libboost-all-dev
 
-ENV DISPLAY :0
+ENV DISPLAY=:0
