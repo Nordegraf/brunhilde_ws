@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            # 'node = brunhilde_walk.walk_node:main',
+            'node = brunhilde_walk.everything:main',
         ],
     },
 )
