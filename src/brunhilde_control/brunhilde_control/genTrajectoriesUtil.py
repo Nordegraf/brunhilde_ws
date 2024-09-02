@@ -21,19 +21,16 @@ class GenTrajectoriesUtil():
 
     def walkGet(self):
         self.gait.dSref = [0.0, 0.5, 0.5, 0.0]
-        position = self.gait.generate_trajectory(self.T_defaults,0.025,0.3,0.005, 0.001, 0.02)
+        position = self.gait.generate_trajectory(self.T_defaults,0.02,0.2,0.001, 0.001, 0.02)
         result = self.inv_kin.convert_trajectory(position)
-        self.startingPosition = [result[0][0],result[0][1],result[0][0],result[0][1], result[0][0],result[0][1], result[0][0],result[0][1]]
-        return result   
+        return result  
         
     def crawlGet(self):
         self.gait.dSref = [0.0, 0.5, 1.0, 1.5]
         position = self.gait.generate_trajectory(self.T_defaults,0.03,0.3,0.005, 0.002, 0.015)
         result = self.inv_kin.convert_trajectory(position)
-        self.startingPosition = [result[0][0],result[0][1],result[0][0],result[0][1], result[0][0],result[0][1], result[0][0],result[0][1]]
         
     def trotGet(self):
         self.gait.dSref = [0.0, 0.0, 0.5, 0.5]
         position = self.gait.generate_trajectory(self.T_defaults,0.03,0.3,0.005, 0.002, 0.015)
         result = self.inv_kin.convert_trajectory(position)
-        self.startingPosition = [result[0][0],result[0][1],result[0][0],result[0][1], result[0][0],result[0][1], result[0][0],result[0][1]]
